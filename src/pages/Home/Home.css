@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 3rem;
     flex: 1;
     padding: 3rem 4rem 4rem 4rem;
     max-width: 1400px;
@@ -47,8 +47,8 @@
 
 @media (max-width: 1200px) {
     .hero__main {
-        padding: 3rem 2.5rem 3rem 2.5rem;
-        gap: 2.5rem;
+        padding: 2rem 2.5rem 3rem 2.5rem;
+        gap: 2rem;
     }
 }
 
@@ -66,14 +66,15 @@
 
 .hero__left {
     width: 50%;
+    min-width: 0; /* ✅ critical — allows flex child to shrink */
     display: flex;
     flex-direction: column;
-    gap: 1.1rem;
+    gap: 0.9rem;
     padding-left: 0;
     padding-right: 1rem;
     text-align: left;
     align-items: flex-start;
-    min-width: 0;
+    overflow: hidden; /* ✅ prevent text overflow */
 }
 
 @media (max-width: 1200px) {
@@ -87,16 +88,13 @@
         width: 100%;
         padding-left: 0;
         padding-right: 0;
-        text-align: left;
-        align-items: flex-start;
         order: 2;
-        margin-top: 0;
         margin-bottom: 10px;
     }
 }
 
 .hero__greeting {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--text-color);
     opacity: 0.5;
     letter-spacing: 0.25em;
@@ -106,31 +104,36 @@
 }
 
 .hero__name {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem); /* ✅ smaller clamp range */
     font-weight: 700;
     color: var(--text-color);
     line-height: 1.1;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     margin: 0;
     font-family: Cinzel;
+    white-space: nowrap; /* ✅ keep name on one line */
 }
 
 .hero__typewriter {
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    font-size: clamp(0.85rem, 2vw, 1.3rem); /* ✅ smaller clamp */
     color: var(--text-color);
-    min-height: 2.2rem;
+    min-height: 2rem;
     font-weight: 600;
     margin: 0;
     opacity: 0.8;
+    white-space: nowrap; /* ✅ prevent mid-word cut */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .hero__description {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     color: var(--text-color);
     opacity: 0.6;
     line-height: 1.6;
-    max-width: 520px;
-    margin: 0.4rem 0 0.8rem 0;
+    max-width: 100%;
+    margin: 0.3rem 0 0.6rem 0;
 }
 
 /* ============================================
@@ -140,8 +143,8 @@
 .hero__meta {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 1rem 0;
+    gap: 6px;
+    padding: 0.8rem 0;
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
     opacity: 0.6;
@@ -151,19 +154,16 @@
 .hero__meta__item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    font-size: 0.9rem;
+    gap: 12px;
     margin: 0;
-    justify-content: flex-start;
 }
 
 .hero__meta__label {
     color: var(--text-color);
-    min-width: 110px;
-    font-size: 0.75rem;
+    min-width: 100px;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    text-align: left;
     font-weight: 700;
     opacity: 0.6;
 }
@@ -171,20 +171,19 @@
 .hero__meta__value {
     color: var(--text-color);
     font-weight: 600;
-    font-size: 0.9rem;
-    text-align: left;
+    font-size: 0.85rem;
 }
 
 /* ============================================
-   ACTION BUTTONS — always same row on desktop
+   ACTION BUTTONS — all horizontal always
    ============================================ */
 
 .hero__actions {
     display: flex;
-    flex-direction: row; /* ✅ always row on desktop */
+    flex-direction: row; /* ✅ always horizontal */
     flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 0.6rem;
+    gap: 10px;
+    margin-top: 0.5rem;
     justify-content: flex-start;
     width: 100%;
 }
@@ -193,9 +192,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 11px 22px;
-    font-size: 0.85rem;
+    gap: 7px;
+    padding: 10px 18px;
+    font-size: 0.8rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -206,7 +205,7 @@
     line-height: 1;
     text-align: center;
     white-space: nowrap;
-    min-width: 0; /* ✅ don't force wide min-width that causes wrapping */
+    min-width: 0;
     flex-shrink: 0;
 }
 
@@ -220,7 +219,6 @@
     background: transparent;
     color: var(--text-color);
     transform: translateY(-3px);
-    border: none;
 }
 
 .hero__btn--outline {
@@ -236,7 +234,7 @@
 }
 
 .hero__btn svg {
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: transform 0.3s ease;
 }
 
@@ -250,18 +248,16 @@
 
 .hero__right {
     width: 50%;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 0;
 }
 
 @media (max-width:991.98px) {
     .hero__right {
         width: 100%;
         order: 1;
-        margin-bottom: 0;
-        margin-top: 0;
         padding: 0;
     }
 }
@@ -293,7 +289,7 @@
 }
 
 /* ============================================
-   TABLET
+   TABLET 768px
    ============================================ */
 
 @media (max-width: 768px) {
@@ -302,65 +298,50 @@
         gap: 1rem;
     }
 
-    .hero__left {
-        gap: 0.7rem;
-    }
+    .hero__left { gap: 0.6rem; }
 
-    .hero__greeting {
-        font-size: 0.75rem;
-    }
+    .hero__greeting { font-size: 0.68rem; }
 
     .hero__name {
-        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        font-size: clamp(1.4rem, 4vw, 1.9rem);
+        white-space: normal;
     }
 
     .hero__typewriter {
-        font-size: clamp(0.85rem, 3vw, 1.1rem);
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+        white-space: normal;
         min-height: auto;
     }
 
     .hero__description {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         line-height: 1.5;
     }
 
     .hero__actions {
-        flex-direction: row; /* ✅ keep same row on tablet */
+        flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 8px;
     }
 
     .hero__btn {
-        padding: 9px 18px;
-        font-size: 0.8rem;
+        padding: 8px 14px;
+        font-size: 0.75rem;
     }
 
-    .hero__meta__item {
-        gap: 10px;
-    }
+    .hero__meta__label { font-size: 0.62rem; min-width: 80px; }
+    .hero__meta__value { font-size: 0.78rem; }
 
-    .hero__meta__label {
-        min-width: 90px;
-        font-size: 0.68rem;
-    }
-
-    .hero__meta__value {
-        font-size: 0.8rem;
-    }
-
-    .hero__img__wrapper {
-        aspect-ratio: 4 / 3;
-    }
+    .hero__img__wrapper { aspect-ratio: 4 / 3; }
 }
 
 /* ============================================
-   MOBILE
+   MOBILE 480px
    ============================================ */
 
 @media (max-width: 480px) {
     .hero__section {
-        padding-top: 30px;
+        padding-top: 20px;
         padding-bottom: 60px;
     }
 
@@ -369,107 +350,77 @@
         gap: 0.8rem;
     }
 
-    .hero__left {
-        gap: 0.6rem;
-    }
+    .hero__left { gap: 0.5rem; }
 
-    .hero__greeting {
-        font-size: 0.7rem;
-    }
+    .hero__greeting { font-size: 0.62rem; }
 
     .hero__name {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        white-space: normal;
     }
 
     .hero__typewriter {
-        font-size: 0.82rem;
+        font-size: 0.78rem;
+        white-space: normal;
     }
 
     .hero__description {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
         margin-bottom: 4px;
     }
 
     .hero__actions {
-        flex-direction: row; /* ✅ keep same row on mobile too */
+        flex-direction: row;
         flex-wrap: wrap;
         gap: 8px;
-        margin-top: 8px;
-        margin-bottom: 12px;
-    }
-
-    .hero__btn {
-        padding: 8px 14px;
-        font-size: 0.75rem;
-        gap: 6px;
-    }
-
-    .hero__meta {
-        gap: 5px;
-        padding: 0.5rem 0;
-        margin-bottom: 5px;
-    }
-
-    .hero__meta__item {
-        gap: 8px;
-    }
-
-    .hero__meta__label {
-        min-width: 80px;
-        font-size: 0.62rem;
-    }
-
-    .hero__meta__value {
-        font-size: 0.75rem;
-    }
-
-    .hero__img__wrapper {
-        aspect-ratio: 16 / 12;
-    }
-}
-
-@media (max-width: 380px) {
-    .hero__section {
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-
-    .hero__name {
-        font-size: 1.3rem;
-    }
-
-    .hero__typewriter {
-        font-size: 0.75rem;
+        margin-top: 6px;
     }
 
     .hero__btn {
         padding: 7px 12px;
-        font-size: 0.7rem;
+        font-size: 0.72rem;
+        gap: 5px;
     }
 
-    .hero__img__wrapper {
-        aspect-ratio: 16 / 14;
-    }
+    .hero__meta { gap: 4px; padding: 0.4rem 0; }
+    .hero__meta__label { min-width: 75px; font-size: 0.6rem; }
+    .hero__meta__value { font-size: 0.72rem; }
+
+    .hero__img__wrapper { aspect-ratio: 16 / 12; }
 }
+
+/* ============================================
+   SMALL MOBILE 380px
+   ============================================ */
+
+@media (max-width: 380px) {
+    .hero__section {
+        padding-top: 10px;
+        padding-bottom: 50px;
+    }
+
+    .hero__name { font-size: 1.15rem; }
+    .hero__typewriter { font-size: 0.7rem; }
+
+    .hero__btn {
+        padding: 6px 10px;
+        font-size: 0.68rem;
+    }
+
+    .hero__img__wrapper { aspect-ratio: 16 / 14; }
+}
+
+/* ============================================
+   LARGE DESKTOP 1400px+
+   ============================================ */
 
 @media (min-width: 1400px) {
     .hero__main {
         padding: 3rem 6rem 5rem 6rem;
     }
 
-    .hero__left {
-        padding-left: 3rem;
-    }
-
-    .hero__name {
-        font-size: 4rem;
-    }
-
-    .hero__typewriter {
-        font-size: 2rem;
-    }
-
-    .hero__img__wrapper {
-        aspect-ratio: 1 / 1;
-    }
+    .hero__name { font-size: 3rem; }
+    .hero__typewriter { font-size: 1.5rem; }
+    .hero__description { font-size: 1rem; }
+    .hero__img__wrapper { aspect-ratio: 1 / 1; }
 }
