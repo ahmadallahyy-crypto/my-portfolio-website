@@ -36,7 +36,7 @@ export const introdata = {
         third: "Professional Forex Analyst",
     },
     description: "Multidisciplinary professional bridging software engineering, chemical engineering, and financial markets. Building innovative solutions, optimizing industrial processes, and analyzing global currency trends.",
-    your_img_url: "https://i.pinimg.com/1200x/ea/b3/6a/eab36aafb5a93dc0452f506a1609da4f.jpg",
+    your_img_url: "https://i.pinimg.com/736x/7f/7b/0c/7f7b0c9bf14ae9b769705a071dfb6dd0.jpg",
     buttons: {
         hireMe: "Hire Me",
         downloadCV: "Download CV",
