@@ -4,11 +4,11 @@
 
 .hero__section {
     height: auto;
-    min-height: calc(100vh - 60px); /* ✅ min-height instead of fixed height */
+    min-height: calc(100vh - 60px);
     margin-top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* ✅ start from top, never clip content */
+    justify-content: flex-start;
     background-color: var(--primary-color);
     position: relative;
     width: 100%;
@@ -38,7 +38,7 @@
     justify-content: space-between;
     gap: 4rem;
     flex: 1;
-    padding: 3rem 4rem 4rem 4rem; /* ✅ increased top padding */
+    padding: 3rem 4rem 4rem 4rem;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
@@ -96,7 +96,7 @@
 }
 
 .hero__greeting {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--text-color);
     opacity: 0.5;
     letter-spacing: 0.25em;
@@ -106,7 +106,7 @@
 }
 
 .hero__name {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
     color: var(--text-color);
     line-height: 1.1;
@@ -116,16 +116,16 @@
 }
 
 .hero__typewriter {
-    font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
     color: var(--text-color);
-    min-height: 2.6rem;
+    min-height: 2.2rem;
     font-weight: 600;
     margin: 0;
     opacity: 0.8;
 }
 
 .hero__description {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-color);
     opacity: 0.6;
     line-height: 1.6;
@@ -148,27 +148,19 @@
     width: 100%;
 }
 
-@media (max-width: 480px) {
-    .hero__meta {
-        gap: 6px;
-        padding: 0.5rem 0;
-        margin-bottom: 5px;
-    }
-}
-
 .hero__meta__item {
     display: flex;
     align-items: center;
     gap: 16px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin: 0;
     justify-content: flex-start;
 }
 
 .hero__meta__label {
     color: var(--text-color);
-    min-width: 120px;
-    font-size: 0.8rem;
+    min-width: 110px;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-align: left;
@@ -179,46 +171,31 @@
 .hero__meta__value {
     color: var(--text-color);
     font-weight: 600;
+    font-size: 0.9rem;
     text-align: left;
 }
 
 /* ============================================
-   ACTION BUTTONS
+   ACTION BUTTONS — always same row on desktop
    ============================================ */
 
 .hero__actions {
     display: flex;
-    gap: 20px;
+    flex-direction: row; /* ✅ always row on desktop */
     flex-wrap: wrap;
+    gap: 12px;
     margin-top: 0.6rem;
     justify-content: flex-start;
     width: 100%;
-}
-
-@media (max-width: 768px) {
-    .hero__actions {
-        gap: 12px;
-        margin-bottom: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero__actions {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-        margin-bottom: 20px;
-        margin-top: 10px;
-    }
 }
 
 .hero__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 12px 28px;
-    font-size: 0.9rem;
+    gap: 8px;
+    padding: 11px 22px;
+    font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -229,7 +206,8 @@
     line-height: 1;
     text-align: center;
     white-space: nowrap;
-    min-width: 180px;
+    min-width: 0; /* ✅ don't force wide min-width that causes wrapping */
+    flex-shrink: 0;
 }
 
 .hero__btn--primary {
@@ -258,7 +236,7 @@
 }
 
 .hero__btn svg {
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: transform 0.3s ease;
 }
 
@@ -298,22 +276,6 @@
     transition: all 0.4s ease;
 }
 
-@media (max-width: 768px) {
-    .hero__img__wrapper {
-        max-width: 100%;
-        aspect-ratio: 4 / 3;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero__img__wrapper {
-        max-width: 100%;
-        aspect-ratio: 16 / 12;
-        margin: 0 auto;
-    }
-}
-
 .hero__img__wrapper:hover {
     filter: saturate(1);
 }
@@ -331,7 +293,7 @@
 }
 
 /* ============================================
-   RESPONSIVE BREAKPOINTS
+   TABLET
    ============================================ */
 
 @media (max-width: 768px) {
@@ -341,65 +303,64 @@
     }
 
     .hero__left {
-        gap: 0.8rem;
-        margin-bottom: 10px;
+        gap: 0.7rem;
     }
 
     .hero__greeting {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
     }
 
     .hero__name {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
     }
 
     .hero__typewriter {
-        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-size: clamp(0.85rem, 3vw, 1.1rem);
         min-height: auto;
     }
 
     .hero__description {
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         line-height: 1.5;
-        margin-bottom: 8px;
     }
 
     .hero__actions {
-        flex-direction: row;
+        flex-direction: row; /* ✅ keep same row on tablet */
         flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 15px;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .hero__btn {
+        padding: 9px 18px;
+        font-size: 0.8rem;
     }
 
     .hero__meta__item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+        gap: 10px;
     }
 
     .hero__meta__label {
-        min-width: auto;
-        font-size: 0.7rem;
+        min-width: 90px;
+        font-size: 0.68rem;
     }
 
     .hero__meta__value {
         font-size: 0.8rem;
     }
 
-    .hero__btn {
-        padding: 10px 20px;
-        font-size: 0.85rem;
-        min-width: 160px;
-    }
-
-    .hero__btn svg {
-        font-size: 1rem;
+    .hero__img__wrapper {
+        aspect-ratio: 4 / 3;
     }
 }
 
+/* ============================================
+   MOBILE
+   ============================================ */
+
 @media (max-width: 480px) {
     .hero__section {
-        padding-top: 50px;
+        padding-top: 30px;
         padding-bottom: 60px;
     }
 
@@ -408,93 +369,86 @@
         gap: 0.8rem;
     }
 
-    .hero__img__wrapper {
-        max-width: 100%;
-        aspect-ratio: 16 / 12;
-        margin: 0 auto;
-    }
-
-    .hero__right {
-        margin-bottom: 0;
-        margin-top: 0;
-        padding: 0;
-    }
-
     .hero__left {
         gap: 0.6rem;
-        margin-bottom: 5px;
-    }
-
-    .hero__name {
-        font-size: 1.6rem;
-    }
-
-    .hero__typewriter {
-        font-size: 0.85rem;
     }
 
     .hero__greeting {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .hero__name {
+        font-size: 1.5rem;
+    }
+
+    .hero__typewriter {
+        font-size: 0.82rem;
     }
 
     .hero__description {
-        font-size: 0.8rem;
-        margin-bottom: 6px;
+        font-size: 0.78rem;
+        margin-bottom: 4px;
     }
 
     .hero__actions {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 15px;
+        flex-direction: row; /* ✅ keep same row on mobile too */
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+        margin-bottom: 12px;
     }
 
     .hero__btn {
-        width: 100%;
-        padding: 10px 20px;
-        white-space: normal;
-        min-width: auto;
-        font-size: 0.85rem;
-    }
-
-    .hero__btn svg {
-        font-size: 0.95rem;
+        padding: 8px 14px;
+        font-size: 0.75rem;
+        gap: 6px;
     }
 
     .hero__meta {
-        gap: 6px;
+        gap: 5px;
         padding: 0.5rem 0;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+    }
+
+    .hero__meta__item {
+        gap: 8px;
+    }
+
+    .hero__meta__label {
+        min-width: 80px;
+        font-size: 0.62rem;
+    }
+
+    .hero__meta__value {
+        font-size: 0.75rem;
+    }
+
+    .hero__img__wrapper {
+        aspect-ratio: 16 / 12;
     }
 }
 
 @media (max-width: 380px) {
     .hero__section {
-        padding-top: 40px;
+        padding-top: 20px;
         padding-bottom: 50px;
     }
 
-    .hero__img__wrapper {
-        aspect-ratio: 16 / 14;
-    }
-
     .hero__name {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .hero__typewriter {
         font-size: 0.75rem;
     }
 
-    .hero__actions {
-        gap: 8px;
-        margin-bottom: 12px;
+    .hero__btn {
+        padding: 7px 12px;
+        font-size: 0.7rem;
     }
 
-    .hero__btn {
-        padding: 8px 16px;
-        font-size: 0.8rem;
+    .hero__img__wrapper {
+        aspect-ratio: 16 / 14;
     }
 }
 
