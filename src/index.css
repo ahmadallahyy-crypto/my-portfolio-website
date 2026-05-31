@@ -442,6 +442,3 @@ code {
         gap: 6px;
     }
 }
-/* cache-bust-v3 */
-
-:root { --cache-bust: 3; }
