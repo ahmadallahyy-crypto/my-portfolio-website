@@ -1,14 +1,25 @@
 import React from "react";
 import "./Home.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import Typewriter from "typewriter-effect";
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { motion } from "framer-motion";
-import { introdata, meta, socialprofils, resumeLink } from "../../data/content.jsx";
+import { introdata, meta, resumeLink } from "../../data/content.jsx";
 import { HiBriefcase, HiDownload } from "react-icons/hi";
 
 export const Home = () => {
+  const [text] = useTypewriter({
+    words: [
+      introdata.animated?.first || "Software Engineer",
+      introdata.animated?.second || "Chemical Engineer",
+      introdata.animated?.third || "Professional Forex Analyst",
+    ],
+    loop: true,
+    typeSpeed: 70,
+    deleteSpeed: 50,
+    delaySpeed: 1500,
+  });
+
   const handleDownloadResume = () => {
-    // Create a link element
     const link = document.createElement('a');
     link.href = resumeLink.url;
     link.download = resumeLink.fileName;
@@ -26,11 +37,7 @@ export const Home = () => {
       </Helmet>
 
       <section className="hero__section">
-
-        {/* Main hero content */}
         <div className="hero__main">
-
-          {/* Left — text content */}
           <div className="hero__left">
             <motion.p
               className="hero__greeting"
@@ -56,18 +63,8 @@ export const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
-              <Typewriter
-                options={{
-                  strings: [
-                    introdata.animated.first,
-                    introdata.animated.second,
-                    introdata.animated.third,
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 30,
-                }}
-              />
+              <span style={{ fontWeight: 600 }}>{text}</span>
+              <Cursor cursorStyle="|" />
             </motion.div>
 
             <motion.p
@@ -99,7 +96,6 @@ export const Home = () => {
               </p>
             </motion.div>
 
-            {/* Action Buttons */}
             <motion.div
               className="hero__actions"
               initial={{ opacity: 0, y: 20 }}
@@ -118,7 +114,6 @@ export const Home = () => {
             </motion.div>
           </div>
 
-          {/* Right — profile image */}
           <motion.div
             className="hero__right"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -133,9 +128,7 @@ export const Home = () => {
               />
             </div>
           </motion.div>
-
         </div>
-
       </section>
     </HelmetProvider>
   );
