@@ -1,14 +1,14 @@
 /* ============================================
-   HERO SECTION - MATCHING REFERENCE STYLING
+   HERO SECTION
    ============================================ */
 
 .hero__section {
-    height: 100vh;
-    min-height: 700px;
-    margin-top: -60px;
+    height: calc(100vh - 60px); /* ✅ account for header without negative margin */
+    min-height: 640px;
+    margin-top: 0; /* ✅ removed -60px that was pushing content behind header */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: var(--primary-color);
     position: relative;
     width: 100%;
@@ -23,7 +23,7 @@
         height: auto !important;
         min-height: auto;
         margin-top: 0;
-        padding-top: 60px;
+        padding-top: 20px; /* ✅ reduced from 60px since body already has padding-top */
         padding-bottom: 80px;
     }
 }
@@ -38,17 +38,17 @@
     justify-content: space-between;
     gap: 4rem;
     flex: 1;
-    padding: 2rem 4rem 4rem 4rem; /* ✅ reduced from 5rem to prevent squeeze */
+    padding: 2rem 4rem 4rem 4rem;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    box-sizing: border-box; /* ✅ ensure padding doesn't overflow */
+    box-sizing: border-box;
 }
 
 @media (max-width: 1200px) {
     .hero__main {
-        padding: 2rem 2.5rem 3rem 2.5rem; /* ✅ new breakpoint to catch resize gap */
+        padding: 2rem 2.5rem 3rem 2.5rem;
         gap: 2.5rem;
     }
 }
@@ -71,11 +71,11 @@
     display: flex;
     flex-direction: column;
     gap: 1.1rem;
-    padding-left: 0; /* ✅ removed extra padding — hero__main already has it */
+    padding-left: 0;
     padding-right: 1rem;
     text-align: left;
     align-items: flex-start;
-    min-width: 0; /* ✅ critical — prevents flex child from overflowing */
+    min-width: 0;
 }
 
 @media (max-width: 1200px) {
@@ -185,7 +185,7 @@
 }
 
 /* ============================================
-   ACTION BUTTONS - FIXED FOR MOBILE
+   ACTION BUTTONS
    ============================================ */
 
 .hero__actions {
@@ -214,7 +214,6 @@
     }
 }
 
-/* Button Styles */
 .hero__btn {
     display: inline-flex;
     align-items: center;
@@ -235,7 +234,6 @@
     min-width: 180px;
 }
 
-/* Primary buttons - NO BORDER */
 .hero__btn--primary {
     background: var(--text-color);
     color: var(--primary-color);
@@ -249,7 +247,6 @@
     border: none;
 }
 
-/* Outline button */
 .hero__btn--outline {
     background: transparent;
     color: var(--text-color);
@@ -280,7 +277,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 0; /* ✅ prevents flex child overflow */
+    min-width: 0;
 }
 
 @media (max-width:991.98px) {
