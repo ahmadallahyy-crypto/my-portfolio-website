@@ -1,0 +1,284 @@
+/* Portfolio.css - Styled following the same pattern as po_items_ho and po_item */
+
+.portfolio-page {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.portfolio-header {
+    margin-bottom: 2rem;
+}
+
+.portfolio-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.t_border {
+    border-color: var(--secondary-color);
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+    margin-left: 0;
+}
+
+/* Filter Buttons - following the pattern */
+.portfolio-filters {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn.active {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+}
+
+/* Portfolio Grid - matching po_items_ho pattern */
+.portfolio-grid {
+    column-width: 20em;
+    -moz-column-width: 20em;
+    -webkit-column-width: 20em;
+    column-gap: 2.5rem;
+    -moz-column-gap: 2.5rem;
+    -webkit-column-gap: 2.5rem;
+}
+
+/* Portfolio Item - matching po_item pattern */
+.portfolio-item {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 0.75rem auto;
+    position: relative;
+    background: var(--secondary-color);
+    padding: 8px;
+    border: 1px solid var(--secondary-color);
+    transition: 0.3s ease;
+    font-size: 0;
+    min-height: 350px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;  /* Smooth zoom transition */
+}
+
+/* Image zoom out/reduce effect on hover */
+.portfolio-item:hover img {
+    transform: scale(0.85);  /* Reduces image size to 85% on hover */
+}
+
+/* Overlay - matching content pattern from po_item */
+.portfolio-overlay {
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--overlay-color);
+    z-index: 2;  /* Increased z-index to appear above image */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    border: 1px solid black;
+    color: var(--secondary-color);
+}
+
+.portfolio-overlay {
+    opacity: 0;
+    transition-delay: 0.3s;  /* Reduced delay for faster response */
+    transition: 0.3s ease;
+    font-size: 20px;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.portfolio-overlay h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--secondary-color);
+    transform: translateY(20px);  /* Initial position for animation */
+    transition: transform 0.3s ease 0.2s;
+}
+
+.portfolio-overlay p {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--secondary-color);
+    max-width: 90%;
+    line-height: 1.4;
+    transform: translateY(20px);  /* Initial position for animation */
+    transition: transform 0.3s ease 0.25s;
+}
+
+.project-category {
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 3px 10px;
+    border-radius: 3px;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+    transform: translateY(20px);  /* Initial position for animation */
+    transition: transform 0.3s ease 0.3s;
+}
+
+/* Hover effects - matching po_item:hover pattern */
+.portfolio-item:hover {
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    opacity: 1;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+    color: var(--secondary-color);
+}
+
+/* Animate overlay content sliding up */
+.portfolio-item:hover .portfolio-overlay h3,
+.portfolio-item:hover .portfolio-overlay p,
+.portfolio-item:hover .portfolio-overlay .project-category {
+    transform: translateY(0);
+}
+
+/* Link button - matching a pattern from po_item */
+.project-link {
+    background: var(--bg-color);
+    border: solid 1px var(--text-color);
+    padding: 6px 12px;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-top: 0.75rem;
+    transition: 0.3s ease;
+    transform: translateY(20px);  /* Initial position for animation */
+    transition: transform 0.3s ease 0.35s, background 0.3s ease, color 0.3s ease;
+}
+
+.portfolio-item:hover .project-link {
+    transform: translateY(0);
+}
+
+.project-link:hover {
+    text-decoration: none;
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    border-color: var(--secondary-color);
+}
+
+/* Optional: Add a dark overlay on the image when hovering */
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1;
+    transition: background 0.3s ease;
+    pointer-events: none;
+}
+
+.portfolio-item:hover::before {
+    background: rgba(0, 0, 0, 0.3);  /* Dark overlay on image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .portfolio-grid {
+        column-width: 18em;
+        -moz-column-width: 18em;
+        -webkit-column-width: 18em;
+        column-gap: 2rem;
+        -moz-column-gap: 2rem;
+        -webkit-column-gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-page {
+        padding: 1rem;
+        width: 100%;
+    }
+    
+    .portfolio-grid {
+        column-width: 100%;
+        -moz-column-width: 100%;
+        -webkit-column-width: 100%;
+        column-gap: 1rem;
+        -moz-column-gap: 1rem;
+        -webkit-column-gap: 1rem;
+    }
+    
+    .portfolio-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .portfolio-item {
+        min-height: 300px;
+    }
+    
+    /* Slightly smaller zoom on mobile */
+    .portfolio-item:hover img {
+        transform: scale(0.9);
+    }
+    
+    .portfolio-overlay {
+        font-size: 16px;
+        padding: 1rem;
+    }
+    
+    .portfolio-overlay h3 {
+        font-size: 1.1rem;
+    }
+    
+    .portfolio-overlay p {
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,382 @@
+/* ============================================
+   ABOUT.CSS — CLASSIC REFINED STYLE WITH THEME SUPPORT
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── PAGE ── */
+.about-page {
+    min-height: 100vh;
+    padding: 120px 32px 80px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ── HEADER ── */
+.about-header {
+    max-width: 1200px;
+    margin: 0 auto 56px;
+    text-align: center;
+}
+
+.display-4 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.display-4::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--secondary-color);
+}
+
+.t_border {
+    width: 40px;
+    height: 2px;
+    background: var(--secondary-color);
+    border: none;
+    margin: 24px auto 0 !important;
+}
+
+/* ── TWO COLUMN GRID ── */
+.two-column-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* ── SECTION CARD ── (NO BORDER BY DEFAULT, SHOW ON HOVER) */
+.section-card {
+    background: var(--primary-color);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.section-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+    border-color: var(--secondary-color);
+}
+
+/* ── SECTION HEADER ── (NO BORDER BY DEFAULT, SHOW ON HOVER) */
+.section-header {
+    padding: 18px 26px;
+    border-bottom: 1px solid transparent;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.3s ease;
+}
+
+.section-card:hover .section-header {
+    border-bottom-color: var(--secondary-color);
+}
+
+.section-header-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-color);
+    letter-spacing: 0.01em;
+}
+
+/* ── SECTION CONTENT ── */
+.section-content {
+    padding: 24px 26px;
+}
+
+/* ── ABOUT TEXT ── */
+.about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin: 0;
+    text-align: justify;
+    font-weight: 400;
+}
+
+/* ── EDUCATION ── (NO BORDER BY DEFAULT, SHOW ON HOVER) */
+.education-item {
+    padding: 14px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.section-card:hover .education-item {
+    border-bottom-color: var(--secondary-color);
+}
+
+.education-item:first-child { padding-top: 0; }
+.education-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.education-degree {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.education-date {
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    padding: 4px 12px;
+    background: rgba(var(--secondary-color-rgb, 184, 134, 11), 0.15);
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.education-institution {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.education-institution i {
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+}
+
+.education-achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.education-achievements li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.education-achievements li i {
+    color: var(--secondary-color);
+    margin-top: 4px;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+/* ── SKILLS ── (NO BORDER BY DEFAULT, SHOW ON HOVER) */
+.skill-category {
+    margin-bottom: 22px;
+}
+
+.skill-category:last-child { margin-bottom: 0; }
+
+.skill-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 0 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: border-color 0.3s ease;
+}
+
+.section-card:hover .skill-category-title {
+    border-bottom-color: var(--secondary-color);
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s ease;
+    cursor: default;
+}
+
+.skill-item:hover { transform: translateX(4px); }
+
+.skill-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ── SERVICES ── (NO BORDER BY DEFAULT, SHOW ON HOVER) */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.service-item {
+    padding: 16px 0;
+    border-bottom: 1px solid transparent;
+    transition: padding-left 0.25s ease, border-color 0.3s ease;
+    cursor: default;
+}
+
+.service-item:first-child { padding-top: 0; }
+.service-item:last-child { border-bottom: none; padding-bottom: 0; }
+.service-item:hover { padding-left: 8px; }
+
+.section-card:hover .service-item {
+    border-bottom-color: var(--secondary-color);
+}
+
+.service__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service__title::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.service_desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin: 0;
+    padding-left: 18px;
+    font-weight: 400;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .about-page { padding: 100px 20px 60px; }
+    .two-column-grid { grid-template-columns: 1fr; gap: 20px; }
+    .left-column, .right-column { gap: 20px; }
+    .section-header { padding: 14px 18px; }
+    .section-content { padding: 18px; }
+    .section-title { font-size: 1.1rem; }
+    
+    .about-text { font-size: 0.95rem; }
+    .education-degree { font-size: 0.95rem; }
+    .skill-name { font-size: 0.85rem; }
+    .service__title { font-size: 0.95rem; }
+    .service_desc { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+    .about-page { padding: 80px 16px 48px; }
+    .education-header { flex-direction: column; gap: 5px; }
+    .display-4 { font-size: 2rem; }
+    
+    .about-text { font-size: 0.9rem; line-height: 1.7; }
+    .education-degree { font-size: 0.9rem; }
+    .education-institution { font-size: 0.85rem; }
+    .education-achievements li { font-size: 0.82rem; }
+    .skill-name { font-size: 0.8rem; }
+    .service__title { font-size: 0.9rem; }
+    .service_desc { font-size: 0.8rem; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-card {
+    animation: fadeInUp 0.55s ease-out forwards;
+    opacity: 0;
+}
+
+.left-column  .section-card:nth-child(1) { animation-delay: 0.08s; }
+.left-column  .section-card:nth-child(2) { animation-delay: 0.20s; }
+.right-column .section-card:nth-child(1) { animation-delay: 0.14s; }
+.right-column .section-card:nth-child(2) { animation-delay: 0.26s; }
+
+/* ── UTILITY ── */
+.py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.my-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+.ml-0 { margin-left: 0; }
+.text-left { text-align: left; }

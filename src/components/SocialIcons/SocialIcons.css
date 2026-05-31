@@ -1,0 +1,272 @@
+/* ============================================
+   SOCIAL ICONS — PROFESSIONAL SIDEBAR
+   ============================================ */
+
+.stick_follow_icon {
+    position: fixed;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* Vertical line above icons */
+.stick_follow_icon::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: var(--text-color);
+    opacity: 0.15;
+    margin-bottom: 20px;
+    transition: opacity 0.3s ease;
+}
+
+/* Vertical line below icons */
+.stick_follow_icon::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: var(--text-color);
+    opacity: 0.15;
+    margin-top: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.stick_follow_icon:hover::before,
+.stick_follow_icon:hover::after {
+    opacity: 0.4;
+}
+
+/* List container */
+.stick_follow_icon ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stick_follow_icon ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeSlideIn 0.4s ease forwards;
+}
+
+/* Staggered entrance animation */
+.stick_follow_icon ul li:nth-child(1) { animation-delay: 0.1s; }
+.stick_follow_icon ul li:nth-child(2) { animation-delay: 0.2s; }
+.stick_follow_icon ul li:nth-child(3) { animation-delay: 0.3s; }
+.stick_follow_icon ul li:nth-child(4) { animation-delay: 0.4s; }
+.stick_follow_icon ul li:nth-child(5) { animation-delay: 0.5s; }
+.stick_follow_icon ul li:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Icon link - NO HOVER EFFECTS */
+.stick_follow_icon ul li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    transition: none; /* Removed transition completely */
+    overflow: hidden;
+}
+
+/* NO hover transform or scale */
+.stick_follow_icon ul li a:hover {
+    /* No transform, no movement */
+}
+
+/* Icon svg - NO hover scale */
+.stick_follow_icon ul li a svg {
+    width: 17px;
+    height: 17px;
+    position: relative;
+    z-index: 1;
+    transition: none; /* Removed transition */
+}
+
+/* NO hover scale effect */
+.stick_follow_icon ul li a:hover svg {
+    /* No transform scale */
+}
+
+/* "Follow Me" text */
+.stick_follow_icon p {
+    writing-mode: vertical-rl;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.25;
+    transition: opacity 0.3s ease;
+    padding-top: 8px;
+}
+
+.stick_follow_icon:hover p {
+    opacity: 0.6;
+}
+
+/* ============================================
+   DARK THEME - White icons with visible text
+   ============================================ */
+:root .stick_follow_icon ul li a {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+:root .stick_follow_icon ul li a:hover {
+    color: #ffffff;
+    opacity: 1;
+    /* No drop-shadow, no filter */
+}
+
+:root .stick_follow_icon::before,
+:root .stick_follow_icon::after {
+    background: #ffffff;
+}
+
+:root .stick_follow_icon p {
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+:root .stick_follow_icon:hover p {
+    opacity: 0.8;
+}
+
+/* ============================================
+   LIGHT THEME - Black icons with visible text
+   ============================================ */
+[data-theme="light"] .stick_follow_icon ul li a {
+    color: #000000;
+    opacity: 0.6;
+}
+
+[data-theme="light"] .stick_follow_icon ul li a:hover {
+    color: #000000;
+    opacity: 1;
+    /* No drop-shadow, no filter */
+}
+
+[data-theme="light"] .stick_follow_icon::before,
+[data-theme="light"] .stick_follow_icon::after {
+    background: #000000;
+}
+
+[data-theme="light"] .stick_follow_icon p {
+    color: #000000;
+    opacity: 0.5;
+}
+
+[data-theme="light"] .stick_follow_icon:hover p {
+    opacity: 0.8;
+}
+
+/* ============================================
+   MOBILE - Sleek bottom bar
+   ============================================ */
+@media (max-width: 768px) {
+    .stick_follow_icon {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: unset;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        padding: 10px 20px;
+        background: var(--primary-color);
+        border-top: 1px solid var(--text-color);
+        opacity: 0.95;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 998;
+    }
+
+    /* Remove vertical lines on mobile */
+    .stick_follow_icon::before,
+    .stick_follow_icon::after {
+        display: none;
+    }
+
+    .stick_follow_icon ul {
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .stick_follow_icon ul li {
+        animation: fadeSlideInMobile 0.4s ease forwards;
+    }
+
+    @keyframes fadeSlideInMobile {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .stick_follow_icon ul li a {
+        width: 40px;
+        height: 40px;
+        opacity: 0.6;
+    }
+
+    /* NO hover effect on mobile */
+    .stick_follow_icon ul li a:hover {
+        /* No transform */
+        opacity: 1;
+    }
+
+    .stick_follow_icon ul li a svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Follow Me on mobile - horizontal beside icons */
+    .stick_follow_icon p {
+        writing-mode: horizontal-tb;
+        font-size: 8px;
+        letter-spacing: 2px;
+        margin: 0 0 0 12px;
+        opacity: 0.5;
+        padding-top: 0;
+    }
+    
+    [data-theme="light"] .stick_follow_icon p {
+        color: #000000;
+        opacity: 0.6;
+    }
+    
+    :root .stick_follow_icon p {
+        color: #ffffff;
+        opacity: 0.6;
+    }
+}
