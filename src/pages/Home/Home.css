@@ -3,12 +3,12 @@
    ============================================ */
 
 .hero__section {
-    height: calc(100vh - 60px); /* ✅ account for header without negative margin */
-    min-height: 640px;
-    margin-top: 0; /* ✅ removed -60px that was pushing content behind header */
+    height: auto;
+    min-height: calc(100vh - 60px); /* ✅ min-height instead of fixed height */
+    margin-top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* ✅ start from top, never clip content */
     background-color: var(--primary-color);
     position: relative;
     width: 100%;
@@ -20,10 +20,10 @@
 @media (max-width:991.98px) {
     .hero__section {
         display: block;
-        height: auto !important;
+        height: auto;
         min-height: auto;
         margin-top: 0;
-        padding-top: 20px; /* ✅ reduced from 60px since body already has padding-top */
+        padding-top: 20px;
         padding-bottom: 80px;
     }
 }
@@ -38,17 +38,16 @@
     justify-content: space-between;
     gap: 4rem;
     flex: 1;
-    padding: 2rem 4rem 4rem 4rem;
+    padding: 3rem 4rem 4rem 4rem; /* ✅ increased top padding */
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
 }
 
 @media (max-width: 1200px) {
     .hero__main {
-        padding: 2rem 2.5rem 3rem 2.5rem;
+        padding: 3rem 2.5rem 3rem 2.5rem;
         gap: 2.5rem;
     }
 }
@@ -58,7 +57,6 @@
         flex-direction: column;
         padding: 0.5rem 2rem 2rem 2rem;
         gap: 1.5rem;
-        height: auto;
     }
 }
 
@@ -502,7 +500,7 @@
 
 @media (min-width: 1400px) {
     .hero__main {
-        padding: 2rem 6rem 5rem 6rem;
+        padding: 3rem 6rem 5rem 6rem;
     }
 
     .hero__left {
