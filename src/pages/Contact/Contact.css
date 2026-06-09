@@ -1,5 +1,6 @@
 /* ============================================
-   CONTACT PAGE STYLES
+   CONTACT PAGE STYLES - SELF CONTAINED
+   Each component manages its own styles
    ============================================ */
 
 .contact-page {
@@ -10,7 +11,7 @@
 }
 
 /* ============================================
-   HEADER SECTION - CENTERED WITH THIN LINE
+   HEADER SECTION
    ============================================ */
 
 .contact-header {
@@ -20,7 +21,6 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    padding-left: 0;
 }
 
 .contact-header h1 {
@@ -28,8 +28,6 @@
     color: var(--text-color);
     margin-bottom: 1rem;
     font-weight: 700;
-    margin-left: 0;
-    padding-left: 0;
 }
 
 .t_border {
@@ -43,7 +41,6 @@
 
 .contact-header:hover .t_border {
     width: 85%;
-    margin: 0 auto;
 }
 
 /* ============================================
@@ -55,7 +52,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    border-radius: 0 !important;
+    border-radius: 0;
     margin-bottom: 2rem;
     max-width: 1200px;
     margin-left: auto;
@@ -107,15 +104,13 @@
     padding: 0 0 0 1rem;
     opacity: 0.7;
     transition: opacity 0.3s ease;
-    width: auto;
-    height: auto;
 }
 
 .alert-close:hover {
     opacity: 1;
-    transform: none;
     background: transparent;
     color: inherit;
+    transform: none;
 }
 
 /* ============================================
@@ -167,16 +162,14 @@
     justify-content: center;
     background: var(--bg-color);
     border: 1px solid var(--secondary-color);
-    border-radius: 0 !important;
-    transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+    border-radius: 0;
+    transition: all 0.3s ease;
 }
 
 .contact-item:hover .contact-icon-wrapper {
     background: var(--text-color);
     border-color: var(--text-color);
-    transform: translateY(-4px);
-    box-shadow: 6px 6px 0px var(--text-color),
-                -6px -6px 0px var(--text-color);
+    transform: translateY(-2px);
 }
 
 .contact-icon {
@@ -241,12 +234,10 @@
     min-width: 340px;
 }
 
-/* Form Groups - Consistent Spacing */
 .contact__form .form-group {
     margin-bottom: 0;
 }
 
-/* Name + Email Row */
 .contact__form .row {
     display: flex;
     gap: 1.5rem;
@@ -259,13 +250,12 @@
     min-width: calc(50% - 0.75rem);
 }
 
-/* Form Control Base Styles */
 .contact__form .form-control {
     padding: 1.4rem 1.2rem;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    border-radius: 0 !important;
+    border-radius: 0;
     border: 1.5px solid var(--secondary-color);
     width: 100%;
     transition: all 0.3s ease;
@@ -273,14 +263,12 @@
     font-size: 1rem;
 }
 
-/* Input Spacing - Using margin-bottom for separation */
 .contact__form input.form-control {
     height: auto;
     padding: 1.4rem 1.2rem;
     margin-bottom: 1.5rem;
 }
 
-/* Textarea Spacing */
 .contact__form textarea.form-control {
     min-height: 200px;
     resize: vertical;
@@ -288,85 +276,117 @@
     margin-bottom: 2rem;
 }
 
-/* Focus State */
 .contact__form .form-control:focus {
     outline: none;
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 3px rgba(var(--secondary-color-rgb, 37, 99, 235), 0.15);
 }
 
-/* Placeholder */
 .contact__form .form-control::placeholder {
     color: var(--text-color);
     opacity: 0.6;
     font-size: 1rem;
 }
 
-/* Last Form Group (Button Container) */
 .contact__form .form-group:last-child {
     margin-top: 0;
     text-align: left;
 }
 
 /* ============================================
-   SUBMIT BUTTON - NO BORDER, MATCHING HOME PAGE
+   SUBMIT BUTTON - WITH !IMPORTANT TO OVERRIDE ANY CSS
+   Light theme: dark background with white text
+   Dark theme: white background with black text
    ============================================ */
 
-/* Base Button Style - Same as Home.css, NO BORDER */
-.contact__form .hero__btn--primary {
+.contact-submit-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 10px !important;
-    padding: 12px 28px !important;
-    font-size: 0.9rem !important;
+    gap: 7px !important;
+    padding: 10px 18px !important;
+    font-size: 0.8rem !important;
     font-weight: 600 !important;
     text-decoration: none !important;
     cursor: pointer !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    border-radius: 30px !important;
     letter-spacing: 0.5px !important;
     font-family: inherit !important;
     line-height: 1 !important;
     text-align: center !important;
     white-space: nowrap !important;
-    min-width: 180px !important;
+    min-width: 0 !important;
+    flex-shrink: 0 !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid var(--text-color) !important;
+}
+
+/* Light Theme - Dark background with White text */
+[data-theme="light"] .contact-submit-btn,
+.light-theme .contact-submit-btn {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+}
+
+[data-theme="light"] .contact-submit-btn:hover,
+.light-theme .contact-submit-btn:hover {
+    background: transparent !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Dark Theme - White background with Black text */
+[data-theme="dark"] .contact-submit-btn,
+.dark-theme .contact-submit-btn {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+[data-theme="dark"] .contact-submit-btn:hover,
+.dark-theme .contact-submit-btn:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Default/Fallback theme - uses CSS variables */
+.contact-submit-btn {
     background: var(--text-color) !important;
     color: var(--primary-color) !important;
-    border: none !important;
-    position: relative !important;
-    overflow: hidden !important;
-    z-index: 1 !important;
+    border: 2px solid var(--text-color) !important;
 }
 
-/* Hover Effect - Same as Home.css */
-.contact__form .hero__btn--primary:hover {
+.contact-submit-btn:hover {
     background: transparent !important;
     color: var(--text-color) !important;
-    transform: translateY(-3px) !important;
+    transform: translateY(-2px) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    border: none !important;
+    border: 2px solid var(--text-color) !important;
 }
 
-/* Active State */
-.contact__form .hero__btn--primary:active {
-    transform: translateY(0) !important;
+.contact-submit-btn:active {
+    transform: translateY(1px) !important;
+    transition: transform 0.1s ease !important;
 }
 
-/* Disabled State */
-.contact__form .hero__btn--primary:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.contact-submit-btn:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
     transform: none !important;
 }
 
-/* Icon Animation */
-.contact__form .hero__btn--primary svg {
-    font-size: 1.1rem !important;
+.contact-submit-btn svg {
+    font-size: 0.95rem !important;
     transition: transform 0.3s ease !important;
 }
 
-.contact__form .hero__btn--primary:hover svg {
+.contact-submit-btn:hover svg {
     transform: translateX(5px) !important;
 }
 
@@ -399,7 +419,7 @@
 }
 
 /* ============================================
-   RESPONSIVE — 992px
+   RESPONSIVE - TABLET 992px
    ============================================ */
 
 @media (max-width: 992px) {
@@ -421,7 +441,7 @@
 }
 
 /* ============================================
-   RESPONSIVE — 768px (REDUCED GAP BETWEEN FIELDS)
+   RESPONSIVE - TABLET 768px
    ============================================ */
 
 @media (max-width: 768px) {
@@ -443,7 +463,12 @@
         min-width: 100%;
     }
 
-    /* REDUCED GAP BETWEEN FORM FIELDS ON MOBILE */
+    .contact__form .form-group:last-child {
+        text-align: left !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+
     .contact__form input.form-control {
         margin-bottom: 0.6rem !important;
         padding: 0.8rem 1rem !important;
@@ -453,11 +478,6 @@
         margin-bottom: 0.8rem !important;
         padding: 0.8rem 1rem !important;
         min-height: 140px !important;
-    }
-
-    .contact__form .form-group:last-child {
-        margin-top: 0.5rem;
-        margin-bottom: 0;
     }
 
     .contact-info {
@@ -509,21 +529,19 @@
         padding: 0.8rem 1rem;
     }
 
-    /* Mobile button adjustments */
-    .contact__form .hero__btn--primary {
-        padding: 10px 20px !important;
-        font-size: 0.85rem !important;
-        min-width: 160px !important;
-        margin-top: 0.5rem !important;
+    .contact-submit-btn {
+        padding: 8px 14px !important;
+        font-size: 0.75rem !important;
+        gap: 6px !important;
     }
 
-    .contact__form .hero__btn--primary svg {
-        font-size: 1rem !important;
+    .contact-submit-btn svg {
+        font-size: 0.85rem !important;
     }
 }
 
 /* ============================================
-   RESPONSIVE — 480px (TIGHT SPACING)
+   RESPONSIVE - MOBILE 480px
    ============================================ */
 
 @media (max-width: 480px) {
@@ -534,10 +552,14 @@
     .contact-alert {
         padding: 0.75rem 1rem;
         font-size: 0.85rem;
-        border-radius: 0 !important;
     }
 
-    /* TIGHT SPACING BETWEEN FORM FIELDS */
+    .contact__form .form-group:last-child {
+        text-align: left !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+
     .contact__form input.form-control {
         padding: 0.6rem 0.8rem !important;
         margin-bottom: 0.5rem !important;
@@ -549,11 +571,6 @@
         margin-bottom: 0.7rem !important;
         min-height: 120px !important;
         font-size: 0.9rem !important;
-    }
-
-    .contact__form .form-group:last-child {
-        margin-top: 0.3rem;
-        margin-bottom: 0;
     }
 
     .contact-item-content a,
@@ -583,18 +600,22 @@
         width: 85%;
     }
 
-    /* Full width button on mobile */
-    .contact__form .hero__btn--primary {
-        width: 100% !important;
-        padding: 10px 16px !important;
-        white-space: normal !important;
-        min-width: auto !important;
-        margin-top: 0.3rem !important;
+    .contact-submit-btn {
+        display: inline-flex !important;
+        width: auto !important;
+        padding: 7px 12px !important;
+        font-size: 0.72rem !important;
+        gap: 5px !important;
+        white-space: nowrap !important;
+    }
+    
+    .contact-submit-btn svg {
+        font-size: 0.8rem !important;
     }
 }
 
 /* ============================================
-   RESPONSIVE — 380px (EXTRA TIGHT SPACING)
+   RESPONSIVE - SMALL MOBILE 380px
    ============================================ */
 
 @media (max-width: 380px) {
@@ -602,7 +623,12 @@
         padding: 60px 1rem 50px;
     }
     
-    /* EXTRA TIGHT SPACING FOR VERY SMALL SCREENS */
+    .contact__form .form-group:last-child {
+        text-align: left !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+
     .contact__form input.form-control {
         padding: 0.5rem 0.7rem !important;
         margin-bottom: 0.4rem !important;
@@ -616,14 +642,15 @@
         font-size: 0.85rem !important;
     }
 
-    .contact__form .form-group:last-child {
-        margin-top: 0.2rem;
-        margin-bottom: 0;
+    .contact-submit-btn {
+        display: inline-flex !important;
+        width: auto !important;
+        padding: 6px 10px !important;
+        font-size: 0.68rem !important;
+        gap: 4px !important;
     }
-
-    .contact__form .hero__btn--primary {
-        padding: 8px 14px !important;
+    
+    .contact-submit-btn svg {
         font-size: 0.75rem !important;
-        margin-top: 0.2rem !important;
     }
 }

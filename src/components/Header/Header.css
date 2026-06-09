@@ -303,8 +303,26 @@ body.menu-open {
     .header-logo-wrapper { padding: 10px 24px !important; }
     .logo-link { font-size: 1.85rem !important; }
     
-    .theme-toggle { width: 48px !important; height: 48px !important; }
-    .mobile-menu-btn { width: 52px !important; height: 52px !important; }
+    /* Larger icons on tablet */
+    .theme-toggle { 
+        width: 56px !important; 
+        height: 56px !important; 
+    }
+    
+    .theme-toggle svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .mobile-menu-btn { 
+        width: 60px !important; 
+        height: 60px !important; 
+    }
+    
+    .mobile-menu-btn svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
     
     .mobile-nav-container { 
         padding: 80px 20px 30px; 
@@ -362,14 +380,25 @@ body.menu-open {
         font-size: 1.55rem !important; 
     }
     
+    /* Significantly larger icons on mobile */
     .theme-toggle { 
-        width: 42px !important; 
-        height: 42px !important; 
+        width: 62px !important; 
+        height: 62px !important; 
+    }
+    
+    .theme-toggle svg {
+        width: 32px !important;
+        height: 32px !important;
     }
     
     .mobile-menu-btn { 
-        width: 46px !important; 
-        height: 46px !important; 
+        width: 66px !important; 
+        height: 66px !important; 
+    }
+    
+    .mobile-menu-btn svg {
+        width: 34px !important;
+        height: 34px !important;
     }
     
     .mobile-nav-container { 
@@ -417,6 +446,39 @@ body.menu-open {
 
 /* Small Mobile */
 @media (max-width: 380px) {
+    .header-container { 
+        padding: 8px 12px; 
+    }
+    
+    .header-logo-wrapper { 
+        padding: 6px 16px !important; 
+    }
+    
+    .logo-link { 
+        font-size: 1.4rem !important; 
+    }
+    
+    /* Even larger icons for small mobile */
+    .theme-toggle { 
+        width: 58px !important; 
+        height: 58px !important; 
+    }
+    
+    .theme-toggle svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .mobile-menu-btn { 
+        width: 62px !important; 
+        height: 62px !important; 
+    }
+    
+    .mobile-menu-btn svg {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
     .mobile-nav-container { 
         padding: 60px 16px 20px; 
     }
@@ -457,6 +519,26 @@ body.menu-open {
 
 /* Extra Small Devices */
 @media (max-width: 320px) {
+    .theme-toggle { 
+        width: 54px !important; 
+        height: 54px !important; 
+    }
+    
+    .theme-toggle svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .mobile-menu-btn { 
+        width: 58px !important; 
+        height: 58px !important; 
+    }
+    
+    .mobile-menu-btn svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
     .mobile-nav-menu li a { 
         font-size: 1.8rem !important; 
     }
